@@ -1,0 +1,2 @@
+# javascriptWork
+javascript practice 
