@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="radio" name="genre" id="femme" onclick="f0()"/>Femme
+        <input type="radio" name="genre"/>Homme
+        <div id="genre"></div>
+
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <main>
+            <button onclick="f1()">Jaune</button>
+            <button onclick="f2()">Rouge</button>
+            <button onclick="f3()">Vert</button>
+            <button onclick="f4()">Noir</button>
+          </main>
+          <div>
+            Modifier la couleur de l'arrière plan
+          </div>
+          
+  
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <label for="numberInput">Saisir un nombre</label>
+        <input type="number" id="numberInput" />
+        <button onclick="addNumber()">Ajouter</button>
+        <div id="evenNumbers">Nombres pairs:</div>
+        <div id="oddNumbers">Nombres impairs:</div>
+        
+        <style>
+        #evenNumbers, #oddNumbers {
+          display: inline-block;
+          width: 45%;
+          border: 1px solid black;
+          padding: 10px;
+          box-sizing: border-box;
+          margin-bottom: 10px;
+        }
+        </style>
+        
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <div>
+            Saisir la moyenne des contrôles (/20)
+            <input type="number" min=0 max=20 id="moyC"/>
+          </div>
+          <div>
+            Saisir la note de l'EFM (/40)
+            <input type="number" min=0 max=40 id="noteEFM"/>
+          </div>
+          <div>
+            <button onclick="f()">Note Module</button>
+            <span id="moduleNote"></span>
+          </div>
+          
+
+    </div>
+</body>
+</html>
+<script>
+    function f0() {
+        var select = document.createElement("select");
+        select.add(new Option("mademoiselle", "mademoiselle"));
+        select.add(new Option("madame", "madame"));
+        document.getElementById("genre").appendChild(select);
+      }
+
+    function f() {
+      var moyC = document.getElementById("moyC").value;
+      var noteEFM = document.getElementById("noteEFM").value;
+      var moduleNote = ((parseInt(moyC) + parseInt(noteEFM)) / 3);
+      document.getElementById("moduleNote").innerHTML = moduleNote;
+    
+      var appreciation = "";
+      if (moduleNote < 7) {
+        appreciation = "Nul";
+      } else if (moduleNote >= 7 && moduleNote < 10) {
+        appreciation = "Insuffisant";
+      } else if (moduleNote >= 10 && moduleNote < 12) {
+        appreciation = "Passable";
+      } else if (moduleNote >= 12 && moduleNote < 14) {
+        appreciation = "Assez bien";
+      } else if (moduleNote >= 14 && moduleNote < 16) {
+        appreciation = "Bien";
+      } else if (moduleNote >= 16) {
+        appreciation}
+        }
+
+        function addNumber() {
+            var number = document.getElementById("numberInput").value;
+            if (number % 2 == 0) {
+              document.getElementById("evenNumbers").innerHTML += number + "<br>";
+            } else if (number % 2 == 1) {
+              document.getElementById("oddNumbers").innerHTML += number + "<br>";
+            } else {
+              alert("Merci de saisir un nombre.");
+            }
+          }
+
+          function f1() {
+            document.body.style.backgroundColor = "yellow";
+          }
+          
+          function f2() {
+            document.body.style.backgroundColor = "red";
+          }
+          
+          function f3() {
+            document.body.style.backgroundColor = "green";
+          }
+          
+          function f4() {
+            document.body.style.backgroundColor = "black";
+          }
+      </script>
