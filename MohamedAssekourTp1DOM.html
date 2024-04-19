@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div{
+    border: 1px solid black ; 
+    margin:20px 200px 0 200px;
+    padding-bottom: 30px;
+  }
+</style>
+<script>
+  function ClaculerSomme() {
+    var n1 = parseInt(document.getElementById("n1").value)
+    var n2 = parseInt(document.getElementById("n2").value)
+    var s = n1 + n2 
+    if(Number(s)) 
+    {
+      var somme = document.getElementById("somme")
+      somme.innerText = s
+    }
+    else {
+      somme.innerText = "invalid input"
+    } 
+  }
+  function Permuter() {
+    var nt1 = (document.getElementById("nt1").value)
+    var nt2 = (document.getElementById("nt2").value)
+   
+    document.getElementById("nt1").value = nt2
+    document.getElementById("nt2").value = nt1 
+  }
+  function SeparerNomComplet() {
+    var nomComplet = document.getElementById("nomComplet").value
+    var nom = nomComplet.slice(0,nomComplet.indexOf(" "))
+    var prenom = nomComplet.slice(nomComplet.indexOf(" "),  nomComplet.length)
+    document.getElementById("nom").innerText = "Nom : " + nom
+    document.getElementById("preNom").innerText ="Prenom : "   + prenom
+  }
+  function CalculerAbsolut() {
+    var value = parseInt(document.getElementById("vToAbs").value) 
+    if (Math.abs(value)) 
+    {
+      document.getElementById("abs").innerText =  "Valuer absolut  = " + Math.abs(value)
+    }
+  }
+  
+  function operation() {
+      var a = Number(document.getElementById("txt1").value);
+      var b = Number(document.getElementById("txt2").value);
+      var op = document.getElementById("op").value;
+      resu = 0
+      switch (op) {
+        case "+":
+          resu = a+b
+          break;
+        case "-":
+          resu = a-b
+          break;
+        case "*":
+          resu = a*b
+          break;
+        case "/":
+          resu = a/b
+          break;
+      
+        default:
+          break;  
+      }
+      document.getElementById("resOp").innerText =  "Resultat = " + resu
+    }
+</script>
+<body style ="text-align: center;">
+  <div >  
+    <h2>Ex1 : Calculer somme</h2>
+    <input type="text" id ="n1">
+    <label for=""> + </label>
+    <input type="text" id ="n2">
+    <label for=""> = </label>
+    <label for="" id ="somme"> 0 </label>
+    <input type="button" value="Calculer" onclick="ClaculerSomme()">
+  </div>
+  <div >  
+    <h2>Ex2 : Permutation</h2>
+    <input type="text" id ="nt1">
+    <input type="text" id ="nt2">
+    <input type="button" value="Permmuter" onclick="Permuter()">
+  </div>
+  <div >  
+    <h2>Ex3 : Permutation</h2>
+    <input type="text" id ="nomComplet">
+    <input type="button" value="Separer" onclick="SeparerNomComplet()">
+    <h4 id ="nom">Nom : </h4>
+    <h4 id ="preNom">Prenom : </h4>
+  </div>
+  <div >  
+    <h2>Ex4 : Valuer absolut</h2>
+    <input type="text" id ="vToAbs">
+    <input type="button" value="CalculerAbsolut" onclick="CalculerAbsolut()">
+    <h4 id ="abs">Valeur absolut = </h4>
+  </div>
+  <div>
+    <h2>Ex4 : Operation</h2>
+    <input type="text" name="txt1" id="txt1" value="2">
+    <select name="op" id="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="text" name="txt2" id="txt2" value="5">
+
+    <input type="button" value="calcul" onclick="operation()">
+    <h4 id ="resOp">Resultat = </h4>
+
+  </div>
+</body>
+</html>
